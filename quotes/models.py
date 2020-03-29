@@ -16,7 +16,7 @@ class Quote(models.Model):
 
     # data attributes of a quote:
     text = models.TextField(blank=True)
-    person = models.ForeignKey('Person', on_delete="CASCADE")
+    person = models.ForeignKey('Person', on_delete="models.CASCADE")
 
     def __str__(self):
         '''Return a string representation of this object.'''
@@ -27,7 +27,7 @@ class Image(models.Model):
     """Represent an image which is associated with a Person."""
 
     image_url = models.URLField(blank=True)
-    person =  models.ForeignKey('Person', on_delete="CASCADE")
+    person =  models.ForeignKey('Person', on_delete="models.CASCADE")
 
     def __str__(self):
         """Return a string representation of this image.""" 
