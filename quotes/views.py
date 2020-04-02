@@ -57,5 +57,5 @@ class UpdateQuoteView(UpdateView):
     '''A view to update a quote and save it in the database.'''
 
     form_class = UpdateQuoteForm 
-    template_name = "quotes/create_quote.html"
+    template_name = "quotes/update_quote.html"
     queryset = Quote.objects.all()
