@@ -13,7 +13,9 @@ class CreateQuoteForm(forms.ModelForm):
 
 class UpdateQuoteForm(forms.ModelForm):
     '''A form to update a quote to the database.'''
-
-    model = Quote
-    fields = ['person', 'text', ] # which fields from the model should we use
+    
+    class Meta:
+        '''associate this form with the Quote model.'''
+        model = Quote
+        fields = ['person', 'text', ] # which fields from the model should we use
     
