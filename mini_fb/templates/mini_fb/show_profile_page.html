@@ -38,11 +38,11 @@
     </tr>
 
     <ul>
-        {% for stat in profile.get_all_messages %}
+        {% for profile in profile.get_status_messages %}
     
         <li>{{profile.timestamp}}</li>
 
-        <li>{{status.message}}</li>
+        <li>{{profile.message}}</li>
     
         {% endfor %}
     </ul>
