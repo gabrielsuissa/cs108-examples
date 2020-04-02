@@ -50,6 +50,8 @@ class Quote(models.Model):
         '''Return  a URL to display  this quote object.'''
         return reverse("quote", kwargs={"pk":self.pk})
 
+
+
 class Image(models.Model):
     """Represent an image which is associated with a Person."""
 

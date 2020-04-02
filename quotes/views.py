@@ -4,8 +4,8 @@ from django.shortcuts import render
 from .models import Quote, Person
 from django.views.generic import ListView, DetailView
 import random
-from django.views.generic.edit import CreateView
-from .forms import CreateQuoteForm
+from django.views.generic.edit import CreateView, UpdateView
+from .forms import CreateQuoteForm, UpdateQuoteForm
 
 class HomePageView(ListView):
     '''Create a subclass of ListView to display all quotes.'''
@@ -52,3 +52,10 @@ class CreateQuoteView(CreateView):
 
     form_class = CreateQuoteForm 
     template_name = "quotes/create_quote.html"
+
+class UpdateQuoteView(UpdateView):
+    '''A view to update a quote and save it in the database.'''
+
+    form_class = UpdateQuoteForm 
+    template_name = "quotes/create_quote.html"
+    queryset = Quote.objects.all()
