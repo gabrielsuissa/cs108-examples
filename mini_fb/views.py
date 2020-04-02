@@ -15,5 +15,5 @@ class ShowProfilePageView(DetailView):
 
     model = Profile
     template_name = 'mini_fb/show_profile_page.html'
-    context_object_name = 'profile_page' # how to find the data in the template file
+    context_object_name = 'profile' # how to find the data in the template file
 

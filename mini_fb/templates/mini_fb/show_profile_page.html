@@ -1,28 +1,51 @@
-<!-- templates/show_all_profiles.html -->
+<!-- templates/show_profile_page.html -->
+
+{% extends 'mini_fb/base.html' %}
+
+{% block content %} 
 
 <h1>Mini Facebook</h1>
 
-<!-- scriplets code to display the value of the variable 'all_profiles' 
-{{ all_profiles }}
--->
-{{ show_profile }}
+<table>
+    <tr><center><h4>{{profile.first_name}} {{profile.last_name}}</h4></center></tr>
+    
+    <tr> 
+        <center><img src="{{profile.image_url}}" style="max-width: 420; max-height: 470";></center>
+    </tr>
+    
+    <tr><td></td></tr>
+
+    <td> </td>
+
+    <tr align="image_url">
+        <td>Email address: {{profile.email_address}}</td>
+    </tr>
+
+    <tr align="image_url">Hometown: {{profile.city}}</tr>
+</table>
+
+<h3>Status Messages</h3>
 
 <table>
     <colgroup>
-        <col span="1" style="width: 30%;">
-        <col span="1" style="width: 30%;">
-        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 20%;">
+        <col span="1" style="width: 35%;">
     </colgroup>
+
     <tr>
-        <th>Name</th>
-        <th>Hometown</th>
-        <th>Image</th>
+        <th>Time</th>
+        <th>Message</th>
     </tr>
 
-    <tr> 
-        <td><center>{{profile.first_name}} {{profile.last_name}}</center></td>
-        <td><center>{{profile.city}}</center></td>
-        <td><img src="{{profile.image_url}}" style="max-width: 300; max-height: 340";></td>
-        
-    </tr>
+    <ul>
+        {% for stat in profile.get_all_messages %}
+    
+        <li>{{profile.timestamp}}</li>
+
+        <li>{{status.message}}</li>
+    
+        {% endfor %}
+    </ul>
 </table>
+
+{% endblock %}

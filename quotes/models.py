@@ -51,7 +51,6 @@ class Quote(models.Model):
         return reverse("quote", kwargs={"pk":self.pk})
 
 
-
 class Image(models.Model):
     """Represent an image which is associated with a Person."""
 
