@@ -5,7 +5,7 @@ from django.db import models
 class Profile(models.Model):
     '''Encapsulate the idea of a facebook profile (i.e., text).'''
 
-    # data attributes of a quote:
+    # data attributes of a quote
     first_name = models.TextField(blank=True)
     last_name = models.TextField(blank=True)
     city = models.TextField(blank=True)
