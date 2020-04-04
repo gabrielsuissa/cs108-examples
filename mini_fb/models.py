@@ -6,7 +6,7 @@ from django.urls import reverse
 class Profile(models.Model):
     '''Encapsulate the idea of a facebook profile (i.e., text).'''
 
-    # data attributes of a quote
+    # data attributes of a profile
     first_name = models.TextField(blank=True)
     last_name = models.TextField(blank=True)
     city = models.TextField(blank=True)
@@ -17,6 +17,11 @@ class Profile(models.Model):
         '''Return a string representation of this object.'''
 
         return "%s %s" % (self.first_name, self.last_name)
+
+    def get_absolute_url(self):
+        '''Return  a URL to display this profile object.'''
+        return reverse("show_profile_page", kwargs={"pk":self.pk})
+
 
 class StatusMessage(models.Model):
     """Models the data attributes of Facebook status messages."""

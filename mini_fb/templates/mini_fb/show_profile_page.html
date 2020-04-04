@@ -24,6 +24,28 @@
     <tr align="image_url">Hometown: {{profile.city}}</tr>
 </table>
 
+<a href="{% url 'update_profile' profile.pk %}">Update this profile</a>
+
+<h3>Post a Status Message</h3>
+<form action= "{% url 'post_status' profile.pk %}" method='POST'>
+    {% csrf_token %}
+        <table>
+        {% for field in create_status_form %}
+        <tr>
+            <th>{{field.name}}</th>
+            <td>{{field}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="Publish Status!" value="Publish Status!">
+            </td>
+        </tr>
+        </table>
+    </form>
+
+
 <h3>Status Messages</h3>
 
 <table>
