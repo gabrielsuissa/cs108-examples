@@ -49,25 +49,13 @@
 <h3>Status Messages</h3>
 
 <table>
-    <colgroup>
-        <col span="1" style="width: 20%;">
-        <col span="1" style="width: 35%;">
-    </colgroup>
-
+    {% for field in profile.get_status_messages %}
     <tr>
-        <th>Time</th>
-        <th>Message</th>
+        <th>{{field.name}}</th>
+        <td>{{field}}</td>
     </tr>
 
-    <ul>
-        {% for profile in profile.get_status_messages %}
-    
-        <li>{{profile.timestamp}}</li>
-
-        <li>{{profile.message}}</li>
-    
-        {% endfor %}
-    </ul>
+    {% endfor %}
 </table>
 
 {% endblock %}

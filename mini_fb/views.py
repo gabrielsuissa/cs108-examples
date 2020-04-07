@@ -32,7 +32,6 @@ class ShowProfilePageView(DetailView):
         return context
 
 
-
 class CreateProfileView(CreateView):
     """Create a subvlass of CreateView to display the form to create a new profile"""
 
