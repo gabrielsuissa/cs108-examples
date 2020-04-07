@@ -49,10 +49,10 @@
 <h3>Status Messages</h3>
 
 <table>
-    {% for field in profile.get_status_messages %}
+    {% for status in profile.get_status_messages %}
     <tr>
-        <th>{{field.name}}</th>
-        <td>{{field}}</td>
+        <th>{{status.timestamp}}</th>
+        <th>{{status.message}}</th>
     </tr>
 
     {% endfor %}

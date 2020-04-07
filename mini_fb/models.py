@@ -21,6 +21,12 @@ class Profile(models.Model):
     def get_absolute_url(self):
         '''Return  a URL to display this profile object.'''
         return reverse("show_profile_page", kwargs={"pk":self.pk})
+    
+    def get_status_messages(self): 
+        '''Return  a URL to display  this quote object.'''
+        status = StatusMessage.objects.filter(profile=self.pk)
+        return status
+
 
 
 class StatusMessage(models.Model):
@@ -34,7 +40,3 @@ class StatusMessage(models.Model):
         """return a string representation of this object """
         return '%s %s %s' % (self.profile, self.message, self.timestamp)
     
-    def get_status_messages(self): 
-        '''Return  a URL to display  this quote object.'''
-        status = StatusMessage.objects.filter(profile=self.pk)
-        return status
