@@ -25,7 +25,8 @@ class CreateStatusMessageForm(forms.ModelForm):
     """A new form that will enable profiles to publish new status."""
 
     message = forms.CharField(label="Message", required=True)
+    image = forms.ImageField(label="Image", required=False)
     class Meta:
         '''associate this form with the StatusMessage model.'''
         model = StatusMessage
-        fields = ['message', ] # which fields from the model should we use
+        fields = ['message', 'image', ] # which fields from the model should we use

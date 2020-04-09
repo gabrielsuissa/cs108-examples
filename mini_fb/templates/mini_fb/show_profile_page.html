@@ -27,7 +27,7 @@
 <a href="{% url 'update_profile' profile.pk %}">Update this profile</a>
 
 <h3>Post a Status Message</h3>
-<form action= "{% url 'post_status' profile.pk %}" method='POST'>
+<form action= "{% url 'post_status' profile.pk %}" method='POST' enctype="multipart/form-data">
     {% csrf_token %}
         <table>
         {% for field in create_status_form %}
@@ -35,7 +35,9 @@
             <th>{{field.name}}</th>
             <td>{{field}}</td>
         </tr>
+
         {% endfor %}
+        
         <tr>
             <td></td>
             <td>
@@ -47,14 +49,19 @@
 
 
 <h3>Status Messages</h3>
+{{profile.get_status_messages}}
 
 <table>
     {% for status in profile.get_status_messages %}
     <tr>
         <th>{{status.timestamp}}</th>
-        <th>{{status.message}}</th>
-    </tr>
+        <td>{{status.message}}</td>
 
+        {% if status.image %}
+        <td><img src='{{status.image.url}}' style='max-width: 300;'></td>
+        {% endif %}
+        <td><a href="{% url 'delete_status' profile.pk status.pk %}">delete</a></td>
+    </tr>
     {% endfor %}
 </table>
 
