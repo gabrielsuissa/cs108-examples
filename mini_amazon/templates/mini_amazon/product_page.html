@@ -1,0 +1,27 @@
+<!-- templates/product_page.html -->
+
+{% extends 'mini_amazon/base.html' %}
+
+{% block content %} 
+
+<h1>Mini Amazon</h1>
+
+<table>
+    <tr><center><h4>{{product.product_name}} ${{product.price}}</h4></center></tr>
+    
+    <tr> 
+        <center><img src="{{product.image_url}}" style="max-width: 420; max-height: 470";></center>
+    </tr>
+    
+    <tr><td></td></tr>
+
+    <td> </td>
+
+    <tr align="image_url">
+        <td>Buy Button</td>
+    </tr>
+
+</table>
+
+
+{% endblock %}

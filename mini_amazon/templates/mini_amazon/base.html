@@ -1,0 +1,21 @@
+<!-- mini_amazon/base.html -->
+
+<html>
+    <head>
+        <title>Mini Amazon</title>
+    </head>
+
+    <body>
+        <header align="right">
+            | <a href="{% url 'login_page' %}">Login</a>
+            <!-- <a href="{% url 'show_all_profiles' %}">All Profiles</a> | -->
+        </header>
+        <hr>
+
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+
+
+</html>

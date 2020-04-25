@@ -1,0 +1,10 @@
+{% extends 'mini_amazon/base.html' %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ forms.createUserform }}
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}

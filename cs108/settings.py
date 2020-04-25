@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'hello_world.apps.HelloWorldConfig', 
     'pages.apps.PagesConfig',   
     'quotes',
-    'mini_fb', #new application!
+    'mini_fb', 
+    'mini_amazon', #new application!
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,4 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = "/media/"
+LOGIN_REDIRECT_URL = 'home'
