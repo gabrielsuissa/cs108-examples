@@ -5,25 +5,17 @@ from django.contrib.auth.models import User # will be used in login before enter
 # Create your models here.
 
 # This model will represent a user's profile including necessary information to submit payments 
-class Profile(User):
-    '''Encapsulate the idea of a facebook profile (i.e., text).'''
+class Profile(models.Model):
+    '''Encapsulate the idea of an amazon profile (i.e., text) except that we are adding the User model defined by Django'''
 
     # data attributes of a profile
-    #user = models.OneToOneField(User, on_delete=models.CASCADE) # found online need to figure how it works
-    # first_name = models.TextField(blank=True)
-    # last_name = models.TextField(blank=True)
-    # email_address = models.EmailField(blank=True)
-    new_field = models.CharField(max_length=140, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE) # found online need to figure how it works
+    #user_ptr_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, db_constraint=True, related_name="Ma", default="")
+    username = User.username
+    email = User.email
     city = models.TextField(blank=True)
     image_url = models.URLField(blank=True)
     credit_card = models.SmallIntegerField(blank=True) # optional will depend on time 
-
-    def _get_pk_val(self):
-        '''Defines pk value'''
-
-        self.user_ptr_id = self.pk
-
-        return self.pk
 
     def __str__(self):
         '''Return a string representation of this object.'''
