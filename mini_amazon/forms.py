@@ -1,14 +1,14 @@
 from django import forms
-from .models import Profile, Product, ShoppingCart
+from .models import Profile, Product, ShoppingCart, CartItem
 from django.contrib.auth.models import User
 
-class CreateUserForm(forms.ModelForm):
-    """A new form that will help users create a new profile """
+class BuyItemForm(forms.ModelForm):
+    """A form to add an item in the cart"""
 
-    # first_name = forms.CharField(label="First Name", required=True)
-    # birth_date = forms.DateField(widget=forms.SelectDateWidget(years=range(2012,1918,-1),),)
-    
+    quantity = forms.IntegerField(label="Quantity", required=True)
+
     class Meta:
-        '''associate this form with the User model.'''
-        model = User
-        fields = ['username', 'password', ] # which fields from the model should we use
+        '''associate this form with the CartItem model'''
+        model = CartItem
+        fields = ['product', 'quantity', 'cart', ]
+
