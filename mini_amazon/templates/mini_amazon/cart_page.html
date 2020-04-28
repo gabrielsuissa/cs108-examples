@@ -1,0 +1,54 @@
+<!-- templates/all_products_page.html -->
+
+{% extends 'mini_amazon/base.html' %}
+
+{% block content %} 
+
+<h1>Mini Amazon</h1>
+
+<h3>Your Shopping Cart</h3>
+<table>
+    <colgroup>
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 30%;">
+        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 15%;">
+    </colgroup>
+
+    <tr>
+        <th>Item</th>
+        <th>Image</th>
+        <th>Quantity</th>
+    </tr>
+
+    {% for x in profile.get_shopping_cart.get_items %}
+    <tr> 
+        <td>{{x.product.product_name}}</a></td>
+        <td><img src="{{x.product.image_url}}" style="max-width: 150; max-height: 170";></td>
+        <td><h5>{{x.quantity}}</h5></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Checkout</h3>
+<form action= "{% url 'add_item' user.pk %}" method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+        <table>
+        {% for field in form %}
+        <tr>
+            <th>{{field.name}}</th>
+            <td>{{field}}</td>
+        </tr>
+
+        {% endfor %}
+        
+        <tr>
+            <td>
+                <input type="submit" name="Checkout!" value="Checkout!">
+            </td>
+        </tr>
+        </table>
+    </form>
+
+{% endblock %}
+

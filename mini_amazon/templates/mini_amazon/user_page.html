@@ -6,22 +6,22 @@
 
 <h1>Mini Amazon</h1>
 
+<h3>Your Profile</h3>
+
 <table>
-    <tr><center><h4>{{profile.first_name}} {{profile.last_name}}</h4></center></tr>
+    <tr><center><h4>{{user.username}}</h4></center></tr>
     
     <tr> 
         <center><img src="{{profile.image_url}}" style="max-width: 420; max-height: 470";></center>
     </tr>
-    
-    <tr><td></td></tr>
-
-    <td> </td>
 
     <tr align="image_url">
-        <td>Email address: {{profile.email_address}}</td>
+        <td>Email address: {{user.email}}</td>
     </tr>
 
-    <tr align="image_url">Hometown: {{profile.city}}</tr>
+    <tr align="image_url">
+        <td>Hometown: {{profile.city}}</td>
+    </tr>
 </table>
 
 

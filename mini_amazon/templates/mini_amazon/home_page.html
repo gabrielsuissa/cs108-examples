@@ -1,0 +1,21 @@
+<!-- templates/all_products_page.html -->
+
+{% extends 'mini_amazon/base.html' %}
+
+{% block content %} 
+
+<h1>Welcome to Mini Amazon!</h1>
+
+<p>
+    What are you looking for today?
+</p>
+<p>
+    <form id="searchform" action="" method="get" accept-charset="utf-8">
+        <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Type here">
+        <button class="searchbutton" type="submit">Search
+            <i class="fa fa-search"></i>
+        </button>
+      </form> 
+</p>
+
+{% endblock %}

@@ -5,28 +5,30 @@
 {% block content %} 
 
 <h1>Mini Amazon</h1>
-<h2>Showing all products</h2>
 
+<h3>Showing all products</h3>
 
 <table>
     <colgroup>
         <col span="1" style="width: 25%;">
-        <col span="1" style="width: 25%;">
-        <col span="1" style="width: 25%;">
-        <col span="1" style="width: 25%;">
+        <col span="2" style="width: 25%;">
+        <col span="1" style="width: 5%;">
+        <col span="2" style="width: 5%;">
     </colgroup>
+    
     <tr>
         <th>Product Name</th>
-        <th>Image<th>
-        <th>Price<th>
+        <th>Image</th>
+        <th>Price</th>
         <th>Add to cart?</th>
     </tr>
+    
     {% for product in all_products %}
     <tr> 
-        <td><center><a href="{% url 'product_page' product.pk %}">{{product.product_name}}</a></center></td>
+        <td><a href="{% url 'product_page' product.pk %}">{{product.product_name}}</a></td>
         <td><img src="{{product.image_url}}" style="max-width: 150; max-height: 170";></td>
-        <td align="right">${{product.price}}</td>
-        <td align="right">Add Buy Button</td>
+        <td><text>${{product.price}}</text></td>
+        <td><button>Buy</button></td>
     </tr>
     {% endfor %}
 </table>

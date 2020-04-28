@@ -1,12 +1,11 @@
-{% extends 'mini_amazon/base.html' %}
+<h1>Welcome to Mini Amazon!</h1>
 
-{% block content %}
-  
-<h2>Sign up</h2>
+
+
+<h2>Please Login to access this website</h2>
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ forms.as_p }}
+    {{ form.as_p }}
     <button type="submit">Sign up</button>
   </form>
 
-  {% endblock %}

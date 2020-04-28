@@ -17,11 +17,26 @@
 
     <td> </td>
 
-    <tr align="image_url">
-        <td>Buy Button</td>
-    </tr>
-
 </table>
 
+<h2>Add a new item to the Cart</h2>
+
+<form method='POST' enctype="multipart/form-data" action="{% url 'add_item' user.pk %}">
+{% csrf_token %}
+    <table>
+    {% for field in BuyItemForm %}
+    <tr>
+        <th>{{field.name}}</th>
+        <td>{{field}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" value="Add To Cart">
+        </td>
+    </tr>
+    </table>
+</form>
 
 {% endblock %}
