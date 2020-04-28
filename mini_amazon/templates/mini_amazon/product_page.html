@@ -1,4 +1,5 @@
 <!-- templates/product_page.html -->
+<!-- author: gsuissa@bu.edu-->
 
 {% extends 'mini_amazon/base.html' %}
 
@@ -7,31 +8,24 @@
 <h1>Mini Amazon</h1>
 
 <table>
-    <tr><center><h4>{{product.product_name}} ${{product.price}}</h4></center></tr>
-    
+    <tr><h4><center>{{product.product_name}} ${{product.price}}</center></h4></tr>
     <tr> 
         <center><img src="{{product.image_url}}" style="max-width: 420; max-height: 470";></center>
     </tr>
-    
-    <tr><td></td></tr>
-
-    <td> </td>
-
 </table>
 
-<h2>Add a new item to the Cart</h2>
+<h3>Add a new item to the Cart</h3>
 
 <form method='POST' enctype="multipart/form-data" action="{% url 'add_item' user.pk %}">
 {% csrf_token %}
     <table>
-    {% for field in BuyItemForm %}
+    {% for field in item_form %}
     <tr>
         <th>{{field.name}}</th>
         <td>{{field}}</td>
     </tr>
     {% endfor %}
     <tr>
-        <td></td>
         <td>
             <input type="submit" value="Add To Cart">
         </td>

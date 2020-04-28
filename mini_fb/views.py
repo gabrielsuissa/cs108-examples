@@ -68,7 +68,7 @@ def create_status_message(request, pk):
             sm = StatusMessage()
             sm.profile = profile
             sm.message = message
-           # sm.save()
+            sm.save()
 
     else:
         print("Error: the form was not valid.")    
