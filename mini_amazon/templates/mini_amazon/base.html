@@ -1,11 +1,18 @@
 <!-- mini_amazon/base.html -->
 <!-- author: gsuissa@bu.edu-->
+<!-- The base page is really important because it is extended throughout the whole website
+It sets the tone for every stylistic features of mini_amazon and contains essential links and functions-->
 
 <html> 
+
+    <!--This if statement allows for user to see the webpage only if loged-in, see bellow for if not-->
     {% if user.is_authenticated %}
     
     <head>
+
         <title>Mini Amazon</title>
+
+        <!-- The whole style of the website has been determined using a CSS file found online-->
         <link rel= "stylesheet" 
         href="http://cs-people.bu.edu/gsuissa/css/templated-urban/assets/css/main.css">
     </head>
@@ -14,6 +21,7 @@
         
         <h5>Welcome back {{ user.username }} !!!</h5>
 
+        <!-- A list of header links to facilitate navigation inside the website-->
         <div class="topnav" align="right">
             | <a href="{% url 'home_page' %}">Home</a>
             | <a href="{% url 'all_products_page' %}">All Products</a>
@@ -22,6 +30,7 @@
             | <a href="{% url 'logout' %}">Logout</a>
           </div>
         
+        <!-- The mini_amazon logo that was found online-->
         <header align="left">
             <img width = 100; height=100; src="https://img.icons8.com/clouds/2x/amazon.png">
         </header>
@@ -31,8 +40,11 @@
         <hr>
         This page was brought to you by gsuissa@bu.edu
     </body>
-    {% endif %}
 
+    {% endif %} <!-- end of first if 'user is loged-in'-->
+
+    <!-- If not loged-in, user is invited to login following a link-->
+    <!-- Note that both redirect URLs for loging in and loging out were set in the system.py in main django folder-->
     {% if not user.is_authenticated %}
 
     <h3>Please Login to access content</h3>

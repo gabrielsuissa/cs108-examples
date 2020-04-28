@@ -1,5 +1,7 @@
 <!-- templates/home_page.html -->
 <!-- author: gsuissa@bu.edu-->
+<!-- The home page didn't get enough time to be fully completed. The search bar was suppose to lead to 
+each product page links-->
 
 {% extends 'mini_amazon/base.html' %}
 
@@ -11,11 +13,14 @@
     What are you looking for today?
 </p>
 <p>
-    <form id="searchform" action="" method="get" accept-charset="utf-8">
-        <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Type here">
-        <button class="searchbutton" type="submit">Search
+    <form id="searchform" action="" method="get" accept-charset="utf-8" >
+
+        <input class="searchbox" id="searchbox" name="q" type="searchbox" placeholder="Type here">
+
+        <button class="searchbutton" type="submit">Search for Product
             <i class="fa fa-search"></i>
         </button>
+
       </form> 
 </p>
 

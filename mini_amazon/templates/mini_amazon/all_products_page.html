@@ -11,7 +11,9 @@
 
 <h3>Showing all products</h3>
 
+<!-- Using tables is very important to keep a clear structure-->
 <table>
+    <!-- A way to set and organize columns-->
     <colgroup>
         <col span="1" style="width: 25%;">
         <col span="2" style="width: 25%;">
@@ -19,6 +21,7 @@
         <col span="2" style="width: 5%;">
     </colgroup>
     
+    <!-- First Row gets headers-->
     <tr>
         <th>Product Name</th>
         <th>Image</th>
@@ -26,6 +29,7 @@
         <th>Add to cart?</th>
     </tr>
     
+    <!-- The rest of the rows are obtained using a loop in context_object from views all_products-->
     {% for product in all_products %}
     <tr> 
         <td><a href="{% url 'product_page' product.pk %}">{{product.product_name}}</a></td>

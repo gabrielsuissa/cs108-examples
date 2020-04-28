@@ -1,5 +1,6 @@
 <!-- templates/cart_page.html -->
 <!-- author: gsuissa@bu.edu-->
+<!-- The cart page displays the elements that the user has selected while shopping and proposes to checkout-->
 
 {% extends 'mini_amazon/base.html' %}
 
@@ -8,7 +9,11 @@
 <h1>Mini Amazon</h1>
 
 <h3>Your Shopping Cart</h3>
+
+<!-- Using tables is very important to keep a clear structure-->
 <table>
+
+    <!-- A way to set and organize columns-->
     <colgroup>
         <col span="1" style="width: 30%;">
         <col span="1" style="width: 30%;">
@@ -17,6 +22,7 @@
         <col span="1" style="width: 15%;">
     </colgroup>
 
+    <!-- First Row gets headers-->
     <tr>
         <th>Item</th>
         <th>Image</th>
@@ -25,6 +31,7 @@
         <th>Delete?</th>
     </tr>
 
+    <!-- The rest of the rows are obtained using a loop in context_object from views-->
     {% for x in profile.get_shopping_cart.get_items %}
     <tr> 
         <td>{{x.product.product_name}}</td>
@@ -33,10 +40,15 @@
         <td><h5>$ {{x.product.price}} per unit</h5></td>
         <td><button>Delete Item</button></td>
     </tr>
+
     {% endfor %}
+
 </table>
 
-Total = {{profile.get_shopping_cart.get_total_price}}
+<!-- Total = {{profile.get_shopping_cart.get_total_price}} -->
+
+<!-- Just a touch of humour because I did not get enough time to set a proper checkout. My initial plan was to receive an email
+on checkout that would list the content of the Shopping Cart and User (inspirired from assignment 13)-->
 
 <h3>Checkout</h3>
 <form method="get" action="https://www.dailymotion.com/video/xrazvm">
