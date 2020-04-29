@@ -26,7 +26,12 @@ of each user to use when checking out, it could have used an update profile view
     <tr align="image_url">
         <td>Hometown: {{profile.city}}</td>
     </tr>
+
+    <tr>
+        Credit Card Number: {{profile.credit_card}}
+    </tr>
 </table>
 
+<a href="{% url 'update_profile' user.pk %}">Update this profile</a>
 
 {% endblock %}

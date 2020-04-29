@@ -70,12 +70,20 @@ class CartPageView(DetailView):
 # View classes or functions that are related to forms 
 
 
+
+class UpdateProfileView(UpdateView):
+    """Create a subclass of UpdateView to display a form to update a profile."""
+
+    form_class = UpdateProfileForm
+    template_name = 'mini_amazon/update_profile_form.html'
+    queryset = Profile.objects.all()
+
+
 def add_item(request, pk):
     '''Process a form submission to add an item to the user's cart.'''
 
     # find the profile that matches the `pk` in the URL
     user = User.objects.get(pk=pk)
-    cart = ShoppingCart.get_items
 
     # if and only if we are processing a POST request, try to read the data
     if request.method == 'POST':
@@ -84,9 +92,34 @@ def add_item(request, pk):
         quantity = request.POST['quantity']
         product = request.POST['product']
         cart = request.POST['cart']
+        form = BuyItemForm(request.POST)
 
-        # save the proper data in the dictionary
-        
+        # save the proper data in the database
+        # Not completed just a list of failed ideas
+        # form = CartItem()
+        # cart = CartItem.cart
+        # form.save()
+            
+        # quantity = CartItem()
+        # product = CartItem()
+        # cart = CartItem()
+
+
+            # quantity.product = None
+            # quantity.quantity = 1
+            # quantity.cart = None
+
+            # product.product = Product()
+            # product.quantity = None
+            # product.cart = None
+
+            # cart.product = None
+            # cart.quantity = None
+            # cart.cart = ShoppingCart()
+
+            # quantity.save()
+            # cart.save()
+            # product.save()
 
     else:
         print("Error: the form was not valid.")    

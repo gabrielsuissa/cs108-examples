@@ -18,8 +18,9 @@
 
 
 <h3>Add a new item to the Cart</h3>
+<a href="{% url 'add_item' user.pk %}">Update Your Cart</a>
 
-<!-- Form linked to the add_item function in views-->
+<!-- Form linked to the add_item function in views -->
 <form method='POST' enctype="multipart/form-data" action="{% url 'add_item' user.pk %}">
 {% csrf_token %}
 
@@ -38,6 +39,6 @@
         </td>
     </tr>
     </table>
-</form>
+</form> 
 
 {% endblock %}

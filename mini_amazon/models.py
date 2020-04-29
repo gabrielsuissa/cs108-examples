@@ -24,6 +24,7 @@ class Profile(models.Model):
     # The last two attributes are less important but add to the richness of mini_amazon's content
     city = models.TextField(blank=True)
     image_url = models.URLField(blank=True)
+    credit_card = models.SmallIntegerField(blank=True)
 
     # __str__ functions are used to give the string representation in the Django Admin interface
     def __str__(self):
@@ -93,6 +94,7 @@ class CartItem(models.Model):
     product = models.OneToOneField(Product, on_delete=models.CASCADE) # CartItem correspond to one product
     quantity = models.IntegerField(default=1) # CartItem must specify a quantity
     cart = models.ForeignKey('ShoppingCart', on_delete=models.CASCADE) # a Cartitem belongs to one ShoppingCart
+    user = ShoppingCart.user
 
     # __str__ functions are used to give the string representation in the Django Admin interface
     def __str__(self):
@@ -101,4 +103,4 @@ class CartItem(models.Model):
     # This function is used to get a valuable url to display for each profile
     def get_absolute_url(self):
         '''Return  a URL to display this profile object.'''
-        return reverse("product_page", kwargs={"pk":self.pk})
+        return reverse("cart_page", kwargs={"pk":self.pk})

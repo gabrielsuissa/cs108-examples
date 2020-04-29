@@ -25,5 +25,8 @@ urlpatterns = [
     
     # Paths necessary for ShoppingCart forms
     path('user/<int:pk>/shopping_cart/add_item', add_item, name='add_item'), # URL used to add_item function
+
+    # Paths necessary to Profile forms
+    path('profile/<int:pk>/update', UpdateProfileView.as_view(), name='update_profile'), # URL for the update profile view
     
 ]

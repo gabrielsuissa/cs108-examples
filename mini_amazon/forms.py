@@ -21,3 +21,12 @@ class BuyItemForm(forms.ModelForm):
         '''associate this form with the CartItem model'''
         model = CartItem # The model with which we link the form
         fields = ['product', 'quantity', 'cart', ] # these are the fields that the form must contain
+
+
+class UpdateProfileForm(forms.ModelForm):
+    """A new form that allows updating an existing profile"""
+
+    class Meta:
+        '''associate this form with the Profile model.'''
+        model = Profile
+        fields = ['city', 'image_url', 'credit_card', ] # which fields from the model should we use
